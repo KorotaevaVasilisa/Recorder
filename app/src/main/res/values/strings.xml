@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Recorder</string>
-    <string name="microphone">Microphone</string>
+    <string name="microphone">Начать запись</string>
     <string name="your_notes">Ваши записи</string>
+    <string name="play">Прослушать</string>
+    <string name="stop">Остановить</string>
 </resources>
