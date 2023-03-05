@@ -1,5 +1,6 @@
 package com.example.recorder.screens
 
+import android.media.MediaRecorder
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -30,10 +31,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.recorder.R
 
+private lateinit var recorder: MediaRecorder
+
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     val list = listOf<String>("1", "2", "3")
-    Column(modifier = modifier.fillMaxSize().padding(8.dp)) {
+    Column(modifier = modifier
+        .fillMaxSize()
+        .padding(8.dp)) {
         Text(text = stringResource(id = R.string.your_notes),
             fontWeight = FontWeight.ExtraBold,
             fontSize = 40.sp
@@ -50,7 +55,16 @@ fun MainScreen(modifier: Modifier = Modifier) {
             modifier = modifier
                 .align(Alignment.CenterHorizontally)
                 .size(70.dp),
-            onClick = { /*do something*/ }) {
+            onClick = {
+                recorder = MediaRecorder()
+
+                recorder.apply {
+                    setAudioSource(MediaRecorder.AudioSource.MIC)
+                    setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+                    setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+//                    setOutputFile()
+                }
+            }) {
             Icon(painter = painterResource(id = R.drawable.mic),
                 contentDescription = stringResource(id = R.string.microphone))
         }

@@ -4,4 +4,5 @@
     <string name="your_notes">Ваши записи</string>
     <string name="play">Прослушать</string>
     <string name="stop">Остановить</string>
+    <integer name="com_vk_sdk_AppId">51572634</integer>
 </resources>
